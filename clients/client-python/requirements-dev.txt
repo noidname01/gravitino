@@ -29,3 +29,5 @@ cachetools==5.3.3
 readerwriterlock==1.0.9
 docker==7.1.0
 pyjwt[crypto]==2.8.0
+sphinx==7.4.7
+furo==2024.8.6
