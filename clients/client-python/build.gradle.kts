@@ -271,9 +271,10 @@ tasks {
     }
   }
 
-  val pydoc by registering(VenvTask::class) {
-    venvExec = "python"
-    args = listOf("scripts/generate_doc.py")
+  val doc by registering(VenvTask::class) {
+    workingDir = projectDir.resolve("./docs")
+    venvExec = "make"
+    args = listOf("html")
   }
 
   val distribution by registering(VenvTask::class) {
@@ -317,7 +318,8 @@ tasks {
   val clean by registering(Delete::class) {
     delete("build")
     delete("dist")
-    delete("docs")
+    delete("docs/build")
+    delete("docs/source/generated")
     delete("gravitino/version.ini")
     delete("apache_gravitino.egg-info")
     delete("tests/unittests/htmlcov")
